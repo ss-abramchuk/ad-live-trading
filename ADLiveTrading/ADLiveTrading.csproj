@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4712A2C-4F97-4CA7-AB1A-D4F428A81B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealTimeTrading.ADLiveTrading</RootNamespace>
+    <AssemblyName>ADLiveTrading</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\..\..\..\..\Program Files %28x86%29\MS123\Wealth-Lab Developer 6\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LiveTradingManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendors\LiveTradingManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendors\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WealthLab, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendors\WealthLab.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WealthLab.DataProviders.MarketManager, Version=1.2.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendors\WealthLab.DataProviders.MarketManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WealthLab.Extensions.Attribute, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Vendors\WealthLab.Extensions.Attribute.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IADAccountProvider.cs" />
+    <Compile Include="Abstract\IADConnectionProvider.cs" />
+    <Compile Include="Abstract\IADOrderProvider.cs" />
+    <Compile Include="Abstract\IADStaticProvider.cs" />
+    <Compile Include="Abstract\IADStreamingProvider.cs" />
+    <Compile Include="BrokerProvider\ADBrokerProvider.cs" />
+    <Compile Include="DataProvider\ADStaticDataProvider.cs" />
+    <Compile Include="DataProvider\ADStreamingDataProvider.cs" />
+    <Compile Include="Dispatcher\ADWrapper.cs" />
+    <Compile Include="Dispatcher\ADDispatcher.cs" />
+    <Compile Include="Dispatcher\ADProvider.cs" />
+    <Compile Include="Helpers\ADAccount.cs" />
+    <Compile Include="Helpers\ADLiveTradingDescription.cs" />
+    <Compile Include="Helpers\ADMarketManagerInfo.cs" />
+    <Compile Include="Helpers\AsyncResult.cs" />
+    <Compile Include="Helpers\Queries\DataQuery.cs" />
+    <Compile Include="Helpers\Exceptions\ADException.cs" />
+    <Compile Include="Helpers\Queries\HistoryQuery.cs" />
+    <Compile Include="Helpers\DateInterval.cs" />
+    <Compile Include="Helpers\InvokeDescription.cs" />
+    <Compile Include="Helpers\InvokeType.cs" />
+    <Compile Include="Helpers\InvokeResult.cs" />
+    <Compile Include="Helpers\Queries\OrderQuery.cs" />
+    <Compile Include="Helpers\Queries\SubscribeQuery.cs" />
+    <Compile Include="Helpers\UpdateHistoryParams.cs" />
+    <Compile Include="Helpers\WizardMarketDescription.cs" />
+    <Compile Include="Helpers\SymbolDescription.cs" />
+    <Compile Include="Helpers\WizardSymbolDescription.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ADGeneralSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\ADGeneralSetting.designer.cs">
+      <DependentUpon>ADGeneralSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataProvider\WizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataProvider\WizardPage.designer.cs">
+      <DependentUpon>WizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ADSettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\ADSettingsPanel.Designer.cs">
+      <DependentUpon>ADSettingsPanel.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Settings\ADGeneralSetting.resx">
+      <DependentUpon>ADGeneralSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataProvider\WizardPage.resx">
+      <DependentUpon>WizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ADSettingsPanel.resx">
+      <DependentUpon>ADSettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADLite">
+      <Guid>{5D5ED85D-36C7-43A1-B349-78E115607574}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ADLogo[16x16].png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
